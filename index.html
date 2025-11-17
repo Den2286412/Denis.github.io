@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список Користувачів: API, Модулі, JS (Лаб. робота)</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #3f51b5; /* Індиго */
+            --accent-color: #ff9800;  /* Помаранчевий */
+            --bg-color: #f4f7f9;     /* Світло-сірий фон */
+            --card-bg: #ffffff;      /* Білий фон картки */
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        /* Заголовок */
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* Секція списку */
+        .user-list-section {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Список UL */
+        #users-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Проміжок між елементами списку */
+        }
+
+        /* Елемент списку LI (Картка користувача) */
+        #users-list li {
+            background-color: #f9f9f9;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 5px solid var(--accent-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+            line-height: 1.6;
+        }
+
+        #users-list li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(var(--primary-color), 0.15);
+            background-color: #fff;
+        }
+        
+        /* Стилізація помилки */
+        #users-list li[style*="color: red"] {
+            border-left: 5px solid red;
+            background-color: #ffebee; /* Світло-червоний фон для помилки */
+            font-weight: 600;
+        }
+
+        /* Стилізація тексту в LI */
+        #users-list li strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏙️ Користувачі з Gwenborough</h1>
+        <p>
+            Дані завантажуються з API за допомогою <code>fetch()</code>, фільтруються та сортуються в окремих JS-модулях.
+        </p>
+
+        <div class="user-list-section">
+            <h2>Відфільтрований та відсортований список</h2>
+            <ul id="users-list">
+                <li><span style="color: var(--primary-color);">Завантаження даних... Будь ласка, зачекайте.</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
